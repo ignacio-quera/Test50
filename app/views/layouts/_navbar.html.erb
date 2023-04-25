@@ -1,7 +1,14 @@
-<% if user_signed_in? && can?(:create, Product) %>
+<% if user_signed_in? %>
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <%= link_to "Crear Producto", new_product_path, class: "nav-link" %>
-    </li>
+    <% if can? :create, Product %>
+      <li class="nav-item">
+        <%= link_to "Crear Producto", new_product_path, class: "nav-link" %>
+      </li>
+    <% end %>
+    <% if can? :read, Product %>
+      <li class="nav-item">
+        <%= link_to "Ver Productos", products_path, class: "nav-link" %>
+      </li>
+    <% end %>
   </ul>
 <% end %>
