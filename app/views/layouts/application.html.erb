@@ -21,11 +21,13 @@
       <%= link_to "Edit", edit_user_registration_path %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <a href="https://render.com">
-      <%= image_tag 'm&c.png', class: 'mw-100' %>
-      </a>
+      <div class="pagina-bienvenida">
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <a href="https://render.com">
+          <%= image_tag 'm&c.png', class: 'mw-100' %>
+        </a>
+      </div>
     <% end %>
     
     <% if flash[:notice] %>
@@ -36,7 +38,7 @@
       <p class="alert"><%= flash[:alert] %></p>
     <% end %>
 
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>
 
