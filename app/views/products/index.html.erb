@@ -3,4 +3,7 @@
 <%= form_tag products_path, method: :get do %>
     <%= select_tag :category, options_for_select(["All", "CR7", "Leo", "Ney"], params[:category]), onchange: "this.form.submit();" %>
 <% end %>
+<% if can? :create, Product.new %>
+  <%= link_to "Crear producto", new_product_path %>
+<% end %>
   
