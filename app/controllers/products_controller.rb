@@ -1,7 +1,20 @@
 class ProductsController < ApplicationController
   def index
   end
-  
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to @product, notice: "Producto creado exitosamente."
+    else
+      render :new
+    end
+  end
+
   def filter_by_category
     @category = params[:category]
     @products = Product.where(category: @category)
@@ -9,5 +22,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+  end
+  
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :category, :description, :image)
   end
 end
