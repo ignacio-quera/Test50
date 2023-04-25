@@ -20,9 +20,6 @@ class ProductsController < ApplicationController
     @products = Product.where(category: @category)
     render 'index'
   end
-
-  def show
-  end
   
   private
 
