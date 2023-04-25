@@ -1,0 +1,6 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+<%= form_tag products_path, method: :get do %>
+    <%= select_tag :category, options_for_select(["All", "CR7", "Leo", "Ney"], params[:category]), onchange: "this.form.submit();" %>
+<% end %>
+  
