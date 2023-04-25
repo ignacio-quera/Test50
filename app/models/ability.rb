@@ -10,7 +10,7 @@ class Ability
       can :create, Product
       can :manage, :all
     else
-      can :read, Product 
+      can :read, Product
     end
   end
 end
