@@ -9,11 +9,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-####
 
   <body>
+    <div class="container-titulo">
+      <h1>Posters Chetados</h1>
+    </div>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
     <% if user_signed_in? %>
       <p>Logged in as <%= current_user.name %></p> 
       <%= link_to "Edit", edit_user_registration_path %>
@@ -31,17 +32,13 @@
       <p class="alert"><%= flash[:alert] %></p>
     <% end %>
 
-
-
-
-
+    <%= yield %>
     <header class="container mt-4 mb-4">
       <a href="https://render.com">
         <%= image_tag 'm&c.png', class: 'mw-100' %>
       </a>
     </header>
-    <%= yield %>
+    
   </body>
 </html>
 
-#####
