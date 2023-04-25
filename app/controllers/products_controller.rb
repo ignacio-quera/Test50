@@ -3,8 +3,10 @@ class ProductsController < ApplicationController
   end
 
   def new
+    authorize! :create, Product
     @product = Product.new
   end
+  
 
   def create
     @product = Product.new(product_params)
