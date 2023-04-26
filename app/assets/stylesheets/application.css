@@ -58,3 +58,24 @@
    margin: 20px;
    border: 5px solid darkslategrey;
  }
+
+ .delete-button {
+   background-color: #ff4d4d;
+   color: white;
+   padding: 5px 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ 
+ .answer {
+   margin-bottom: 20px;
+   border: 5px solid grey;
+   padding: 10px;
+   border-radius: 5px;
+ }
+ 
+ .question {
+   margin: 20px;
+   border: 5px solid chocolate
+ }
