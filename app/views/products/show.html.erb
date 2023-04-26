@@ -1,2 +1,30 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1><%= @product.name %></h1>
+<p><%= image_tag @product.image.url %></p>
+<p><strong>Precio:</strong> <%= number_to_currency(@product.price) %></p>
+<p><strong>Descripción:</strong> <%= @product.description %></p>
+  
+<h2>Agregar reseña:</h2>
+<%= form_for [@product, @review] do |f| %>
+    <p>
+    <%= f.label :rating %> 
+    <%= f.select :rating, [1, 2, 3, 4, 5] %>
+  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <%= f.submit 'Agregar reseña' %>
+<% end %>
+
+<% @product.reviews.each do |review| %>
+  <div class="review">
+    <p>Por <%= review.user_name %></p>
+    <p>Calificación: <%= review.rating %></p>
+    <p><%= review.comment %></p>
+    <% if current_user.admin? %>
+      <%= link_to 'Eliminar review', delete_product_review_path(product_id: review.product_id, id: review.id), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta review?' } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver', products_path %>
