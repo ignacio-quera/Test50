@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_225828) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_26_221253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_225828) do
     t.text "contenido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titulo"
   end
 
   create_table "products", force: :cascade do |t|
@@ -74,6 +75,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_225828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
+  end
+
+  create_table "solicituds", force: :cascade do |t|
+    t.string "nombre"
+    t.string "email"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "estado"
+    t.string "nombre_producto"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@
 <p><%= image_tag @product.image.url %></p>
 <p><strong>Precio:</strong> <%= number_to_currency(@product.price) %></p>
 <p><strong>Descripción:</strong> <%= @product.description %></p>
+<%= button_to "Solicitar", new_solicitude_path(@product), method: :get, class: "btn btn-primary" %>
   
 <h2>Agregar reseña:</h2>
 <%= form_for [@product, @review] do |f| %>
