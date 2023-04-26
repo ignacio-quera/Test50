@@ -1,0 +1,12 @@
+<%= link_to "Crea una pregunta!", new_question_path, class: "btn btn-primary" %>
+
+<% @questions.each do |question| %>
+  <div class="question">
+    <p>Creada por: <%= question.user_name %></p>
+    <h1><%= link_to question.title, question_path(question) %></h1>
+    <% if current_user.admin? || current_user.name == question.user_name%>
+      <%= button_to 'Eliminar Pregunta', question_path(question), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta pregunta?' } %>
+    <% end %>
+  </div>
+<% end %>
+  
