@@ -23,7 +23,7 @@
     <p>Calificación: <%= review.rating %></p>
     <p><%= review.comment %></p>
     <% if current_user.admin? %>
-      <%= link_to 'Eliminar review', delete_product_review_path(product_id: review.product_id, id: review.id), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta review?' } %>
+      <%= button_to 'Eliminar', eliminar_review_path(review), method: :delete %>
     <% end %>
   </div>
 <% end %>

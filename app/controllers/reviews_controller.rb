@@ -14,10 +14,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.reviews.destroy_all
-    @product.destroy
-    redirect_to products_path, notice: 'El producto se eliminó exitosamente.'
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to @review.product
   end
 
   def show
