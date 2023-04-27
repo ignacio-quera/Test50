@@ -72,3 +72,8 @@ group :test do
 end
 
 gem 'rubocop', require: false
+
+gem 'devise'
+
+gem 'cancancan'
+

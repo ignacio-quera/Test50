@@ -13,3 +13,79 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar-nav{
+    background-color: bisque;
+    text-align: center;
+ }
+
+ .container-titulo{
+    text-align: center;
+    color: white;
+    background-color: darkslategrey;
+ }
+
+ .pagina-bienvenida{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+ }
+
+ body{
+    text-align: center;
+ }
+
+ img{
+    height: 300px;
+    width: 300px;
+    margin: 20px
+ }
+
+ a{
+    margin: 5px;
+ }
+ 
+ button{
+    margin: 20px;
+ }
+
+ .product{
+   margin: 20px;
+   border: 5px solid darkslategrey;
+ }
+ .review{
+   margin: 20px;
+   border: 5px solid darkslategrey;
+ }
+
+ table{
+   margin: 0 auto;
+   margin-top: 20px;
+ }
+
+ th,td{
+   padding: 5px;
+   border: 1px solid black;
+ }
+
+ .delete-button {
+   background-color: #ff4d4d;
+   color: white;
+   padding: 5px 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ 
+ .answer {
+   margin-bottom: 20px;
+   border: 5px solid grey;
+   padding: 10px;
+   border-radius: 5px;
+ }
+ 
+ .question {
+   margin: 20px;
+   border: 5px solid chocolate
+ }
