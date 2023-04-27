@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
     has_many :reviews
+    has_many :solicitudes
     accepts_nested_attributes_for :reviews
     has_one_attached :image
     validates :name, :category, :price, :description, :image, presence: true

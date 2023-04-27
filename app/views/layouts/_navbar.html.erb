@@ -4,10 +4,18 @@
       <li class="nav-item">
         <%= link_to "Crear Producto", new_product_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to "Solicitudes", solicitudes_path, class: "nav-link" %>
+      </li>
     <% end %>
     <% if can? :read, Product %>
       <li class="nav-item">
         <%= link_to "Ver Productos", products_path, class: "nav-link" %>
+      </li>
+    <% end %>
+    <% if current_user.admin? == false %>
+      <li>
+      <%= link_to "Mis solicitudes", solicitudes_buscar_path, class: "nav-link" %>
       </li>
     <% end %>
     <li class="nav-item">

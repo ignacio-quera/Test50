@@ -33,6 +33,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def solicitar
+    @product = Product.find(params[:id])
+    @solicitud = Solicitud.new(nombre_producto: @product.name)
+  end
+
   def filter_by_category
     @category = params[:category]
     @products = Product.where(category: @category)
