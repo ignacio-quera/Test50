@@ -7,6 +7,6 @@
 
   <%= f.label :producto_id %>
   <%= f.collection_select :product_id, Product.all, :id, :name %>
-
+  
   <%= f.submit 'Enviar solicitud' %>
 <% end %>

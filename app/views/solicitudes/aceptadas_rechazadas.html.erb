@@ -4,6 +4,7 @@
   <table>
     <thead>
       <tr>
+        <th>Producto</th>
         <th>Usuario</th>
         <th>email</th>
       </tr>
@@ -11,6 +12,7 @@
     <tbody>
       <% @solicitudes_aceptadas.each do |solicitud| %>
         <tr>
+          <td><%= solicitud.nombre_producto %></td>
           <td><%= solicitud.nombre %></td>
           <td><%= solicitud.email %></td>
         </tr>
@@ -27,6 +29,7 @@
   <table>
     <thead>
       <tr>
+        <th>Producto</th>
         <th>Usuario</th>
         <th>email</th>
       </tr>
@@ -34,6 +37,7 @@
     <tbody>
       <% @solicitudes_rechazadas.each do |solicitud| %>
         <tr>
+          <td><%= solicitud.nombre_producto %></td>
           <td><%= solicitud.nombre %></td>
           <td><%= solicitud.email %></td>
         </tr>

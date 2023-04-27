@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 
   def solicitar
     @product = Product.find(params[:id])
-    @solicitud = Solicitud.new(product: @product)
+    @solicitud = Solicitud.new(nombre_producto: @product.name)
   end
 
   def filter_by_category

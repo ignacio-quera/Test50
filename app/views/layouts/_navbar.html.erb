@@ -16,5 +16,10 @@
       <%= link_to "Foro", new_product_path, class: "nav-link" %>
       </li>
     <% end %>
+    <% if current_user.admin? == false %>
+      <li>
+      <%= link_to "Mis solicitudes", solicitudes_buscar_path, class: "nav-link" %>
+      </li>
+    <% end %>
   </ul>
 <% end %>

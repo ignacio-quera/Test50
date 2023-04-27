@@ -7,10 +7,14 @@ class SolicitudesController < ApplicationController
     @solicitudes = Solicitud.all
   end
 
+  def buscar 
+    @solicitudes = Solicitud.where(email: current_user.email)
+  end
+
   def create
     @solicitud = Solicitud.new(solicitud_params)
-    @producto = Product.find(params[:product_id])
-    @solicitud.nombre_producto = @producto.name
+    @product = Product.find(@solicitud.product_id)
+    @solicitud.nombre_producto = @product.name
     @solicitud.estado = "pendiente"
     if @solicitud.save
       flash[:notice] = 'La solicitud fue creada exitosamente'
@@ -33,7 +37,11 @@ class SolicitudesController < ApplicationController
   def destroy
     @solicitud = Solicitud.find(params[:id])
     @solicitud.destroy
-    redirect_to solicitudes_path, notice: 'La solicitud fue eliminada correctamente.'
+    if current_user.admin?
+      redirect_to solicitudes_pendientes_path, notice: 'La solicitud fue eliminada correctamente.'
+    else
+      redirect_to solicitudes_buscar_path
+    end
   end
   
   def aceptar

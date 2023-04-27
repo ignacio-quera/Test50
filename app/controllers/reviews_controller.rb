@@ -19,8 +19,6 @@ class ReviewsController < ApplicationController
     @product.destroy
     redirect_to products_path, notice: 'El producto se eliminó exitosamente.'
   end
-  
-  
 
   def show
   end

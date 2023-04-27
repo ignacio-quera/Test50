@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   patch 'solicitudes/:id/rechazar', to: 'solicitudes#rechazar', as: 'rechazar_solicitud' 
   get 'solicitudes/aceptadas_rechazadas', to: 'solicitudes#aceptadas_rechazadas', as: 'solicitudes_aceptadas_rechazadas'
   get 'solicitudes/pendientes', to: 'solicitudes#pendientes', as: 'solicitudes_pendientes'
+  get 'solicitudes/buscar', to: 'solicitudes#buscar', as: 'solicitudes_buscar'
 
   end
 
