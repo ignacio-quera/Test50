@@ -52,13 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_221253) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
-  create_table "pregunta", force: :cascade do |t|
-    t.text "contenido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "titulo"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -74,14 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_221253) do
     t.text "content", null: false
     t.string "user_name", null: false
     t.datetime "created_at", null: false
-  end
-
-  create_table "respuesta", force: :cascade do |t|
-    t.text "contenido"
-    t.bigint "pregunta_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["pregunta_id"], name: "index_respuesta_on_pregunta_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -123,6 +108,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_221253) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
-  add_foreign_key "respuesta", "pregunta", column: "pregunta_id"
-  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "products", on_delete: :cascade
 end
