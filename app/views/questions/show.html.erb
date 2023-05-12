@@ -1,6 +1,7 @@
 <div class="question">
   <p>Creada por: <%= @question.user_name %></p>
   <h1><%= @question.title %></h1>
+  <p>Producto relacionado: <%= @question.product.name %></p>
   <p><%= @question.content %></p>
 </div>
 
