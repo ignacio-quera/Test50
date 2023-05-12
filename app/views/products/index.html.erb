@@ -5,10 +5,14 @@
 <% @products.each do |product| %>
   <div class="product">
     <%= image_tag url_for(product.image) %>
-    <li><%= link_to product.name, product_path(product) %></li>
-    <% if current_user.admin? %>
-      <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
-      <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
+    <% if user_signed_in? %>
+      <li><%= link_to product.name, product_path(product) %></li>
+      <% if current_user.admin? %>
+        <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
+        <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
+      <% end %>
+      <% else %>
+      <li><%= product.name %></li>
     <% end %>
   </div>
 <% end %>
