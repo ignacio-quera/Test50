@@ -1,9 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authorize_admin, only: [:edit, :destroy]
   before_action :set_url_options, only: [:show]
+  @categories = Product.pluck(:category).uniq
   
   def index
-    @products = Product.all
+    if params[:category].present? && params[:category] != "All"
+      @products = Product.where(category: params[:category])
+    else
+      @products = Product.all
+    end
   end
 
   def new
