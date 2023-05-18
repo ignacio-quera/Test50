@@ -7,11 +7,11 @@
 <h2>Agregar reseña:</h2>
 <%= form_for [@product, @review] do |f| %>
     <p>
-    <%= f.label :rating %> 
+    <%= f.label :calificación %> 
     <%= f.select :rating, [1, 2, 3, 4, 5] %>
   </p>
   <p>
-    <%= f.label :comment %><br>
+    <%= f.label :comentario %><br>
     <%= f.text_area :comment %>
   </p>
   <%= f.submit 'Agregar reseña' %>
@@ -19,7 +19,7 @@
 
 <% @product.reviews.each do |review| %>
   <div class="review">
-    <p>Por <%= review.user_name %></p>
+    <p>Reseña de: <%= review.user_name %></p>
     <p>Calificación: <%= review.rating %></p>
     <p><%= review.comment %></p>
     <% if current_user.admin? %>

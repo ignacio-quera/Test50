@@ -19,16 +19,13 @@
 
   <body>
     <% if user_signed_in? %>
-      <p>Logged in as <%= current_user.name %></p> 
-      <%= link_to "Edit", edit_user_registration_path %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+      <p>Sesión iniciada como <%= current_user.name %></p>
     <% else %>
       <div class="pagina-bienvenida">
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
         <a href="https://render.com">
           <%= image_tag 'm&c.png', class: 'mw-100' %>
         </a>
+        <p><strong>¡Para acceder a los detalles de los productos debes iniciar sesión!</strong> </p>
       </div>
     <% end %>
     
