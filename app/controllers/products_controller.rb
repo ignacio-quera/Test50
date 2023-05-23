@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: "Producto creado exitosamente."
     else
+      flash.now[:error] = "Hubo errores al crear el producto."
       render :new
     end
   end
@@ -34,6 +35,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: 'Producto actualizado correctamente.'
     else
+      flash.now[:error] = "Hubo errores al editar el producto."
       render :edit
     end
   end
