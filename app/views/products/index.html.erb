@@ -1,18 +1,32 @@
+
 <%= form_tag products_path, method: :get do %>
   <%= select_tag :category, options_for_select(["All", "CR7", "Leo", "Ney"], params[:category]), onchange: "this.form.submit();" %>
 <% end %>
 
-<% @products.each do |product| %>
-  <div class="product">
-    <%= image_tag url_for(product.image) %>
-    <% if user_signed_in? %>
-      <li><%= link_to product.name, product_path(product) %></li>
-      <% if current_user.admin? %>
-        <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
-        <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
-      <% end %>
+<div class="product-grid">
+  <% @products.each do |product| %>
+    <div class="product">
+      <% if user_signed_in? %>
+        <%= link_to product_path(product) do %>
+          <%= image_tag url_for(product.image) %>
+        <% end %>
       <% else %>
-      <li><%= product.name %></li>
-    <% end %>
-  </div>
-<% end %>
+        <%= image_tag url_for(product.image) %>
+      <% end %>
+      <div class="product-title">
+        <% if user_signed_in? %>
+          <%= link_to product.name, product_path(product), class: "product-link" %>
+          <% if current_user.admin? %>
+            <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
+            <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
+          <% end %>
+        <% else %>
+          <%= product.name %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= stylesheet_link_tag 'productos_index', media: 'all' %>

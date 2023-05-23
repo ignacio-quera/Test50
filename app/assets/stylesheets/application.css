@@ -1,91 +1,152 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #E8E8E8;
+  padding-bottom: 100px;
+}
 
- .navbar-nav{
-    background-color: bisque;
-    text-align: center;
- }
+/* Estilos del encabezado */
+.container-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
- .container-titulo{
-    text-align: center;
-    color: white;
-    background-color: darkslategrey;
- }
+.container-titulo h1 {
+  font-size: 32px;
+  color: #333;
+  text-align: center;
+}
 
- .pagina-bienvenida{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
- }
+header {
+  background-color: #294d735f;
+}
 
- body{
-    text-align: center;
- }
+.logo {
+  width: 50px;
+  height: auto;
+}
 
- img{
-    height: 300px;
-    width: 300px;
-    margin: 20px
- }
+/* Footer */
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.353);
+  left: 0;
+}
+
+
+/*Estilo nabvar */
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.353);
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #867f7f;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+/* Estilos de la sección de bienvenida */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pagina-bienvenida {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pagina-bienvenida img {
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+  border-radius: 32px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+}
+
+.pagina-bienvenida p {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
 
  a{
-    margin: 5px;
+  margin: 5px;
  }
  
- button{
-    margin: 20px;
- }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
 
- .product{
-   margin: 20px;
-   border: 5px solid darkslategrey;
- }
- .review{
-   margin: 20px;
-   border: 5px solid darkslategrey;
- }
+th, td {
+  padding: 10px;
+  text-align: left;
+}
 
- table{
-   margin: 0 auto;
-   margin-top: 20px;
- }
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
 
- th,td{
-   padding: 5px;
-   border: 1px solid black;
- }
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
- .delete-button {
-   background-color: #ff4d4d;
-   color: white;
-   padding: 5px 10px;
-   border: none;
-   border-radius: 5px;
-   cursor: pointer;
- }
- 
- .answer {
-   margin-bottom: 20px;
-   border: 5px solid grey;
-   padding: 10px;
-   border-radius: 5px;
- }
- 
- .question {
-   margin: 20px;
-   border: 5px solid chocolate
- }
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+

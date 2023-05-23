@@ -7,37 +7,29 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="container mt-4 mb-4">
-    <div class="container-titulo">
-      <h1>Posters Chetados</h1>
-    </div>
-    <%= render 'layouts/navbar' %>
-  </header>
-
   <body>
-    <% if user_signed_in? %>
-      <p>Sesión iniciada como <%= current_user.name %></p>
-    <% else %>
-      <div class="pagina-bienvenida">
-        <a href="https://render.com">
-          <%= image_tag 'm&c.png', class: 'mw-100' %>
-        </a>
-        <p><strong>¡Para acceder a los detalles de los productos debes iniciar sesión!</strong> </p>
+    <header>
+      <div class="container-titulo">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', alt: 'Logo', class: 'logo' %>
+        <% end %>
+        <h1>Posters Chetados</h1>
       </div>
-    <% end %>
-    
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    
-    <% if flash[:alert] %>
-      <p class="alert"><%= flash[:alert] %></p>
-    <% end %>
+      <%= render 'layouts/navbar' %>
+    </header>
 
-  <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© <%= Time.now.year %> PSoftware50. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>
+
 
