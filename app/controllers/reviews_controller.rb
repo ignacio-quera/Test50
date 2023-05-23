@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @product, notice: 'La reseña se creó exitosamente.'
     else
-      render 'products/show'
+      flash.now[:error] = "Hubo errores al crear la reseña."
+      render :new
     end
   end
 

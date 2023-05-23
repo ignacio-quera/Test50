@@ -4,6 +4,18 @@
   </div>
   <div class="card-body">
     <%= form_with model: @product, url: products_path, local: true do |form| %>
+
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "problema") %> durante la creación del producto:</h2>
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="form-group">
         <%= form.label :name, class: "form-label" %>
         <%= form.text_field :name, class: "form-control" %>
