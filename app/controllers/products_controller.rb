@@ -1,14 +1,19 @@
 class ProductsController < ApplicationController
   before_action :authorize_admin, only: [:edit, :destroy]
   before_action :set_url_options, only: [:show]
+  @categories = Product.pluck(:category).uniq
   
   def index
-    @products = Product.all
+    if params[:category].present? && params[:category] != "All"
+      @products = Product.where(category: params[:category])
+    else
+      @products = Product.all
+    end
   end
 
   def new
     authorize! :create, Product
-    @product = Product.create
+    @product = Product.new
   end
 
   def create
@@ -16,6 +21,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: "Producto creado exitosamente."
     else
+      flash.now[:error] = "Hubo errores al crear el producto."
       render :new
     end
   end
@@ -29,6 +35,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: 'Producto actualizado correctamente.'
     else
+      flash.now[:error] = "Hubo errores al editar el producto."
       render :edit
     end
   end

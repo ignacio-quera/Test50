@@ -10,6 +10,10 @@ path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
     resources :reviews, only: [:create, :destroy]
   end
 
+ 
+  resources :products do
+    resources :reviews, only: [:new, :create]
+  end
   
   delete '/reviews/:id', to: 'reviews#destroy', as: 'eliminar_review'
   
@@ -28,6 +32,7 @@ path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
     resources :solicitudes, only: [:create]
   end
 
+
   resources :solicitudes, only: [:new, :create, :index]
   delete 'solicitudes/:id', to: 'solicitudes#destroy', as: 'eliminar_solicitud'
   patch 'solicitudes/:id/aceptar', to: 'solicitudes#aceptar', as: 'aceptar_solicitud'
@@ -38,7 +43,6 @@ path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
 
   end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
+  
+
 

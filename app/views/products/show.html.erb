@@ -1,31 +1,30 @@
-<h1><%= @product.name %></h1>
-<p><%= image_tag @product.image.url %></p>
-<p><strong>Precio:</strong> <%= number_to_currency(@product.price) %></p>
-<p><strong>Descripción:</strong> <%= @product.description %></p>
-<%= button_to "Solicitar", new_solicitude_path(@product), method: :get, class: "btn btn-primary" %>
-  
-<h2>Agregar reseña:</h2>
-<%= form_for [@product, @review] do |f| %>
-    <p>
-    <%= f.label :rating %> 
-    <%= f.select :rating, [1, 2, 3, 4, 5] %>
-  </p>
-  <p>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </p>
-  <%= f.submit 'Agregar reseña' %>
-<% end %>
-
-<% @product.reviews.each do |review| %>
-  <div class="review">
-    <p>Por <%= review.user_name %></p>
-    <p>Calificación: <%= review.rating %></p>
-    <p><%= review.comment %></p>
-    <% if current_user.admin? %>
-      <%= button_to 'Eliminar', eliminar_review_path(review), method: :delete %>
-    <% end %>
+<div class="container-producto">
+  <div class="product-details">
+    <h1><%= @product.name %></h1>
+    <div class="product-image">
+      <%= image_tag @product.image.url %>
+    </div>
+    <div class="product-info">
+      <p><strong>Precio:</strong> <%= number_to_currency(@product.price) %></p>
+      <p><strong>Descripción:</strong> <%= @product.description %></p>
+      <%= button_to "Solicitar", new_solicitude_path(@product), method: :get, class: "btn btn-primary" %>
+      <%= link_to 'Agregar reseña', new_product_review_path(@product), class: "btn btn-primary" %>
+    </div>
+    <%= link_to 'Volver', products_path, class: "link-back" %>
   </div>
-<% end %>
 
-<%= link_to 'Volver', products_path %>
+  <% @product.reviews.each do |review| %>
+    <div class="review">
+      <p>Reseña de: <%= review.user_name %></p>
+      <p>Calificación: <%= review.rating %></p>
+      <p><%= review.comment %></p>
+      <% if current_user.admin? %>
+        <%= button_to 'Eliminar', eliminar_review_path(review), method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<%= stylesheet_link_tag 'productos_show', media: 'all' %>

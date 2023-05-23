@@ -7,40 +7,29 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="container mt-4 mb-4">
-    <div class="container-titulo">
-      <h1>Posters Chetados</h1>
-    </div>
-    <%= render 'layouts/navbar' %>
-  </header>
-
   <body>
-    <% if user_signed_in? %>
-      <p>Logged in as <%= current_user.name %></p> 
-      <%= link_to "Edit", edit_user_registration_path %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <div class="pagina-bienvenida">
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <a href="https://render.com">
-          <%= image_tag 'm&c.png', class: 'mw-100' %>
-        </a>
+    <header>
+      <div class="container-titulo">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', alt: 'Logo', class: 'logo' %>
+        <% end %>
+        <h1>Posters Chetados</h1>
       </div>
-    <% end %>
-    
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    
-    <% if flash[:alert] %>
-      <p class="alert"><%= flash[:alert] %></p>
-    <% end %>
+      <%= render 'layouts/navbar' %>
+    </header>
 
-  <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© <%= Time.now.year %> PSoftware50. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>
+
 

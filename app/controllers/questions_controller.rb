@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
+      flash.now[:error] = "Hubo errores al crear el producto."
       render :new
     end
   end
@@ -33,6 +34,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content)
+    params.require(:question).permit(:title, :content, :product_id)
   end
 end

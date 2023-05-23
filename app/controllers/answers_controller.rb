@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to question_path(@question)
     else
-      render 'questions/show'
+      flash.now[:error] = "Hubo errores al publicar la respuesta."
     end
   end
 
