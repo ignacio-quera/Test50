@@ -20,10 +20,15 @@ class ReviewsController < ApplicationController
   end
 
   def show
+  
+  end
+
+  def new
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.build
   end
 
   private
-
   def review_params
     params.require(:review).permit(:user_name, :comment, :rating)
     #params.require(:review).permit(:rating, :comment)

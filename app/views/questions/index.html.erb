@@ -1,12 +1,20 @@
-<%= link_to "Crea una pregunta!", new_question_path, class: "btn btn-primary" %>
+<%= link_to "Nueva pregunta", new_question_path, class: "btn btn-primary" %>
 
-<% @questions.each do |question| %>
-  <div class="question">
-    <p>Creada por: <%= question.user_name %></p>
-    <h1><%= link_to question.title, question_path(question) %></h1>
-    <p>Producto relacionado: <%= question.product.name %></p>
-    <% if current_user.admin? || current_user.name == question.user_name%>
-      <%= button_to 'Eliminar Pregunta', question_path(question), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta pregunta?' } %>
-    <% end %>
-  </div>
-<% end %>
+<div class="question-list">
+  <% @questions.each do |question| %>
+    <div class="question">
+      <p class="question-creator">Creada por: <%= question.user_name %></p>
+      <h1 class="question-title"><%= link_to question.title, question_path(question), class: "question-link" %></h1>
+      <p class="question-product">Producto relacionado: <%= question.product.name %></p>
+      <% if current_user.admin? || current_user.name == question.user_name %>
+        <div class="delete-button">
+          <%= button_to 'Eliminar Pregunta', question_path(question), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta pregunta?' }, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<%= stylesheet_link_tag 'preguntas_index', media: 'all' %>

@@ -111,5 +111,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_171342) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "questions", "products"
-  add_foreign_key "reviews", "products", on_delete: :cascade
+  add_foreign_key "reviews", "products"
 end
