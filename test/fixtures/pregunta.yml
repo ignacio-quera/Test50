@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  contenido: MyText
+  contenido: ¿Entregan pedidos fuera de la región metropolitana?
 
 two:
-  contenido: MyText
+  contenido: ¿Cuanto se demora en llegar un pedido aprox?
+
+three:
+  contenido: ¿El despacho cuesta extra?
