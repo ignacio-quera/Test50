@@ -1,15 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  image: MyString
-  category: MyString
+  name: Producto Uno
+  image: imagen1.jpg
+  category: Categoría Uno
   price: 9.99
-  description: MyText
+  description: Descripción del Producto Uno
 
 two:
-  name: MyString
-  image: MyString
-  category: MyString
-  price: 9.99
-  description: MyText
+  name: Producto Dos
+  image: imagen2.jpg
+  category: Categoría Dos
+  price: 19.99
+  description: Descripción del Producto Dos
+

@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
-  question: one
-  user: one
+  content: Contenido de pregunta 1
+  question: Pregunta 1
+  user: javier@gmail.com
 
 two:
-  content: MyText
-  question: two
-  user: two
+  content: Contenido de pregunta 2
+  question: Pregunta 2
+  user: herrera@gmail.com
