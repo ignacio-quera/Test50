@@ -1,4 +1,6 @@
 require "test_helper"
+require 'simplecov'
+SimpleCov.start
 
 class SolicitudesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
