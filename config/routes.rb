@@ -41,6 +41,8 @@ path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
   get 'solicitudes/pendientes', to: 'solicitudes#pendientes', as: 'solicitudes_pendientes'
   get 'solicitudes/buscar', to: 'solicitudes#buscar', as: 'solicitudes_buscar'
 
+
+
   end
 
   
