@@ -78,3 +78,5 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'simplecov', require: false, group: :test
+
