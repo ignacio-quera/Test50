@@ -1,11 +1,13 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.order(created_at: :desc)
+    @products = Product.all
+    if params[:product_id].present?
+      @filtered_questions = Question.where(product_id: params[:product_id])
+    else
+      @filtered_questions = Question.all
+    end
   end
-      
-  def new
-    @question = Question.new
-  end
+  
 
   def create
     @question = Question.new(question_params)

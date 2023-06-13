@@ -31,6 +31,7 @@ path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
   resources :products do
     resources :solicitudes, only: [:create]
   end
+  
 
 
   resources :solicitudes, only: [:new, :create, :index]
