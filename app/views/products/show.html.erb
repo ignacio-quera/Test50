@@ -18,7 +18,7 @@
       <p>Reseña de: <%= review.user_name %></p>
       <p>Calificación: <%= review.rating %></p>
       <p><%= review.comment %></p>
-      <% if current_user.admin? %>
+      <% if current_user.admin? || current_user.name == review.user_name %>
         <%= button_to 'Eliminar', eliminar_review_path(review), method: :delete, class: "btn btn-danger" %>
       <% end %>
     </div>

@@ -16,14 +16,14 @@
       <div class="product-title">
         <% if user_signed_in? %>
           <%= link_to product.name, product_path(product), class: "product-link" %>
-          <% if current_user.admin? %>
-            <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
-            <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
-          <% end %>
         <% else %>
           <%= product.name %>
         <% end %>
       </div>
+      <% if current_user.admin? %>
+        <%= link_to "Editar", edit_product_path(product), class: "btn btn-warning" %>
+        <%= button_to "Eliminar", product_path(product), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este producto?" }, class: "btn btn-danger" %>
+        <% end %>
     </div>
   <% end %>
 </div>
