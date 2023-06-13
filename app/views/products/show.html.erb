@@ -9,6 +9,7 @@
       <p><strong>Descripción:</strong> <%= @product.description %></p>
       <%= button_to "Solicitar", new_solicitude_path(@product), method: :get, class: "btn btn-primary" %>
       <%= link_to 'Agregar reseña', new_product_review_path(@product), class: "btn btn-primary" %>
+      <%= link_to "Preguntas del foro", questions_path(product_id: @product.id), class: "btn btn-primary" %>
     </div>
     <%= link_to 'Volver', products_path, class: "link-back" %>
   </div>
@@ -24,7 +25,5 @@
     </div>
   <% end %>
 </div>
-
-
 
 <%= stylesheet_link_tag 'productos_show', media: 'all' %>

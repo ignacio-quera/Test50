@@ -1,5 +1,5 @@
 <h1><%= @question.title %></h1>
-<p>Producto relacionado: <%= @question.product.name %></p>
+<p>Producto relacionado: <%= link_to @question.product.name, product_path(@question.product) %></p>
 
 <div class="question">
   <div class="question-header">
